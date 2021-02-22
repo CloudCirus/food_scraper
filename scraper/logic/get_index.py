@@ -10,10 +10,12 @@ headers = headers
 req = requests.get(url, headers)
 src = req.text
 
-if not os.path.isdir(PROJECT_DIR + '/tmp'):
-    os.mkdir(PROJECT_DIR + '/tmp')
-    with open(f'{PROJECT_DIR}/tmp/index.html', 'w') as file:
-        file.write(src)
-else:
-    with open(f'{PROJECT_DIR}/tmp/index.html', 'w') as file:
-        file.write(src)
+
+def get_index():
+    if not os.path.isdir(PROJECT_DIR + '/tmp'):
+        os.mkdir(PROJECT_DIR + '/tmp')
+        with open(f'{PROJECT_DIR}/tmp/index.html', 'w') as file:
+            file.write(src)
+    else:
+        with open(f'{PROJECT_DIR}/tmp/index.html', 'w') as file:
+            file.write(src)
